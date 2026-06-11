@@ -1,0 +1,27 @@
+Customer Service: 800-544-6666
+Visit Us Online: Fidelity.com
+JANE EXAMPLE
+2024 Form 5498 IRA Contribution Information
+Account No. Participant TIN Page
+257-999999 ***-**-1234 1 of 2
+NATIONAL FINANCIAL SERVICES LLC
+TRUSTEE'S or ISSUER'S TIN: 04-3523567
+Form 5498
+2024 IRA Contribution Information
+OMB No.1545-0747
+Account Number 257-999999
+2. Rollover contributions..........................................................$3,056.75
+5. Fair market value of account......................................................$943.96
+7. IRA Type.............................................................................IRA*
+11. Required Minimum Distribution for 2025................................................
+* It is an IRS requirement to report Traditional IRAs and Rollover IRAs as IRAs.
+
+Form 1099-R 2024 Distributions From Pensions, Annuities, Retirement or Profit-Sharing Plans, IRAs, Insurance Contracts, etc.
+Copy B Report this income on your federal tax return.
+(OMB No. 1545-0119)
+1 Gross distribution.......................................................$2,100.00
+2a Taxable amount..........................................................$2,100.00
+2b Taxable amount not determined..........X
+4 Federal income tax withheld..............................................$210.00
+7 Distribution code(s).....1
+IRA/SEP/SIMPLE X
