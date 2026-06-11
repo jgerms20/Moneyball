@@ -919,7 +919,7 @@ const cashBuffer: Module = {
     const stressYears = years.filter((y) => y.withdrawalsCents > y.depositsCents);
 
     // Find cluster sell days from overview data (approximate: use years with net withdrawal)
-    const worstWithdrawalYear = years.sort((a, b) => b.withdrawalsCents - a.withdrawalsCents)[0];
+    const worstWithdrawalYear = [...years].sort((a, b) => b.withdrawalsCents - a.withdrawalsCents)[0];
 
     // Estimate monthly spend proxy (average withdrawal per month in withdrawal years)
     const withdrawalYears = years.filter((y) => y.withdrawalsCents > 0);

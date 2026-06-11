@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 // ── helpers ─────────────────────────────────────────────────────────────────
 
 function ageDays(dateStr: string): number {
-  const then = Date.parse(dateStr);
+  const then = Date.parse(dateStr + "T12:00:00Z"); // noon UTC: no off-by-one in any real timezone
   const now = Date.now();
   return Math.floor((now - then) / 86_400_000);
 }

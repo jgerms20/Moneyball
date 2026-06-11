@@ -66,11 +66,12 @@ export default async function WallsPage() {
         const p = JSON.parse(f.payload) as Record<string, unknown>;
         const code = String(p.distributionCode ?? p.distribution_code ?? "");
         if (!code.includes("1")) return [];
+        // the 1099-R importer stores the amount as grossCents
         const gross =
-          typeof p.grossDistributionCents === "number"
-            ? p.grossDistributionCents
-            : typeof p.gross === "number"
-              ? p.gross
+          typeof p.grossCents === "number"
+            ? p.grossCents
+            : typeof p.grossDistributionCents === "number"
+              ? p.grossDistributionCents
               : null;
         return gross != null
           ? [{ year: f.year, accountNo: f.accountNo, grossCents: gross as number, payload: p }]
