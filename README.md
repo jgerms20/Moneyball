@@ -7,6 +7,18 @@ options pairing engine, scores every decision against what the market was
 doing that day, and mirrors back who you are as a trader — patterns, blind
 spots, wins, and evolution.
 
+## What's inside
+
+- **The Mirror** — realized P&L by year (verified to the penny against the 1099s), money in vs out, reconstructed holdings marked to bundled closes, options vital signs, belief-bucket card, and a rotating insight of the day with receipts.
+- **Timeline** — life of the account with market-regime shading; every day gets a context verdict (SPY drawdown, 52-week range position, VIX).
+- **Patterns** — Crash Buyer Score, cluster-sell days (you tag the reason, the engine grades the timing), premature exits with "left on the table," round-trip winners, conviction half-life.
+- **Options Psyche** — strategy breakdown, DTE habits, win/loss anatomy, tilt detector (trades within 48h of a loss), and the Two Traders side-by-side.
+- **SWOT of Me** — versioned, regenerable, every claim with evidence.
+- **Wins Wall & Tuition Ledger** — trophies and lessons priced in dollars, never shame. Belief Bucket lives apart, by design.
+- **Journal** — reflections, thesis tracker with invalidation criteria, 20-second pre-trade checklist.
+- **Education** — nine modules where your own trades are the case studies, including an options strategy library and how professionals (and their machines) actually think.
+- **Ask the Mirror** — optional Claude-powered chat over your local data (bring your own API key).
+
 ## Quick start
 
 ```bash

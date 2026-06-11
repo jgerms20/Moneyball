@@ -34,6 +34,7 @@ const NAV = [
   { href: "/walls", label: "Wins & Tuition" },
   { href: "/journal", label: "Journal" },
   { href: "/education", label: "Education" },
+  { href: "/ask", label: "Ask the Mirror" },
   { href: "/data", label: "Data" },
 ];
 
