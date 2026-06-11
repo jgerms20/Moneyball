@@ -117,7 +117,59 @@ export function loadBundledMarketData(db: DB): { symbol: string; rows: number }[
     out.push({ symbol: "QQQ(2026)", rows: upsertDays(db, rows) });
   }
 
+  // per-ticker daily history (src/data/market/tickers/SYM.csv), two formats:
+  //   big_movers:  "Unnamed: 0,DateTime,Open,High,Low,Close,Volume"
+  //   brownbear:   "Date,Adj Close,Close,High,Low,Open,Volume"
+  const tickersDir = path.join(BUNDLE_DIR, "tickers");
+  if (fs.existsSync(tickersDir)) {
+    let tickerRows = 0;
+    let tickerCount = 0;
+    for (const file of fs.readdirSync(tickersDir)) {
+      if (!file.endsWith(".csv")) continue;
+      const symbol = file.replace(/\.csv$/, "").toUpperCase();
+      const lines = parseCsvLines(fs.readFileSync(path.join(tickersDir, file), "utf8"));
+      if (lines.length < 2) continue;
+      const header = lines[0].fields.map((f) => f.trim());
+      const rows: DayRow[] = [];
+      if (header[1] === "DateTime") {
+        for (const l of lines.slice(1)) {
+          const [, date, , high, low, close] = l.fields;
+          const c = toMicro(close);
+          if (/^\d{4}-\d{2}-\d{2}/.test(date) && c != null) {
+            rows.push({
+              symbol, date: date.slice(0, 10), closeMicro: c,
+              highMicro: toMicro(high), lowMicro: toMicro(low),
+            });
+          }
+        }
+      } else if (header[0] === "Date" && header[1] === "Adj Close") {
+        for (const l of lines.slice(1)) {
+          const [date, adjClose, , high, low] = l.fields;
+          const c = toMicro(adjClose);
+          if (/^\d{4}-\d{2}-\d{2}$/.test(date) && c != null) {
+            rows.push({ symbol, date, closeMicro: c, highMicro: toMicro(high), lowMicro: toMicro(low) });
+          }
+        }
+      }
+      if (rows.length > 0) {
+        tickerRows += upsertDays(db, rows);
+        tickerCount++;
+      }
+    }
+    out.push({ symbol: `tickers(${tickerCount})`, rows: tickerRows });
+  }
+
   return out;
+}
+
+/** Symbols with bundled per-ticker history. */
+export function availableTickerSymbols(): string[] {
+  const dir = path.join(BUNDLE_DIR, "tickers");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".csv"))
+    .map((f) => f.replace(/\.csv$/, "").toUpperCase());
 }
 
 /** Try to refresh from the network. Quietly returns what worked. */

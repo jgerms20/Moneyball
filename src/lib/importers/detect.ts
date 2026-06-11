@@ -18,7 +18,7 @@ export function detectFormat(
     return "fidelity_1099_pdf";
   }
   if (/Run Date\s*,\s*Action\s*,\s*Symbol/i.test(head)) return "fidelity_history_csv";
-  if (/Account Trade History|Exec Time.*Spread.*Pos Effect|Account Statement for/is.test(head)) {
+  if (/Account Trade History|Exec Time.*Spread.*Pos Effect|Account Statement for/i.test(head)) {
     return "thinkorswim_statement";
   }
   if (/"?Date"?\s*,\s*"?Action"?\s*,\s*"?Symbol"?\s*,\s*"?Description"?/i.test(head)) {

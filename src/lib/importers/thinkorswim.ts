@@ -107,7 +107,9 @@ export function parseThinkorswimStatement(content: string): ParseResult {
 
     const row = zipRow(header, line.fields);
     const execRaw = (row["Exec Time"] ?? "").trim();
-    const exec = execRaw ? parseTosExecTime(execRaw) : lastExec;
+    const exec: { date: string; iso: string } | null = execRaw
+      ? parseTosExecTime(execRaw)
+      : lastExec;
     if (execRaw && !exec) {
       skipped.push({ lineNo: line.lineNo, raw: line.raw.slice(0, 300), reason: `bad exec time: ${execRaw}` });
       continue;
@@ -117,7 +119,7 @@ export function parseThinkorswimStatement(content: string): ParseResult {
       continue;
     }
     lastExec = exec;
-    const spread = (row["Spread"] ?? "").trim() || lastSpread;
+    const spread: string | null = (row["Spread"] ?? "").trim() || lastSpread;
     lastSpread = spread;
 
     const side = (row["Side"] ?? "").trim().toUpperCase();
