@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* Trader Mirror — late-night jazz club meets Bloomberg terminal.
+   Dark mode is the only mode. */
+:root {
+  --background: #100f0d; /* near-black charcoal, warm */
+  --surface: #181612;
+  --surface-2: #1f1c17;
+  --line: #2c2820;
+  --foreground: #ece5d8; /* warm off-white */
+  --muted: #9c937f;
+  --faint: #6b6354;
+  --brass: #c9a45c; /* amber/brass accent */
+  --brass-bright: #e3c27d;
+  --gain: #6fb5ab; /* muted teal counterpoint for gains */
+  --loss: #c5705d; /* ember, not the tired red */
+  --panic: #8e5db5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-line: var(--line);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-brass: var(--brass);
+  --color-brass-bright: var(--brass-bright);
+  --color-gain: var(--gain);
+  --color-loss: var(--loss);
+  --color-panic: var(--panic);
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1; /* numbers are the art */
+}
+
+h1,
+h2,
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.num,
+td.num,
+.font-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* hairline cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--brass-bright);
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--background);
+}
+
+/* count-up shimmer for hero numbers */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.5s ease-out both;
+}

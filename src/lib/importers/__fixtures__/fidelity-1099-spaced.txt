@@ -1,0 +1,54 @@
+Form 1099-DIV* 2024 Dividends and Distributions
+Copy B for Recipient
+(OMB No. 1545-0110)
+1a Total Ordinary Dividends ..................................................................................... 37.43
+1b Qualified Dividends .............................................................................................. 28.80
+2024 TAX REPORTING STATEMENT
+Account No. JANE EXAMPLE
+***-**-1234 Payer's Fed ID Number: Recipient ID No.
+Z99-123456
+04-3523567
+Summary of 2024 Proceeds From Broker and Barter Exchange Transactions
+1099-B Section Total
+Short-term transactions for which basis is reported to the IRS 185.90 204.28 0.00 0.00 -18.38 0.00
+Long-term transactions for which basis is reported to the IRS 173.56 166.27 0.00 7.04 14.33 0.00
+FORM 1099-B*
+2024 Proceeds from Broker and Barter Exchange Transactions
+Short-term transactions for which basis is reported to the IRS -- report on Form 8949 with Box A checked and/or Schedule D, Part I
+1a Description of property, Stock or Other Symbol, CUSIP
+EXAMPLECO HOLDINGS INC CL A NEW, EXC0, 00165C302
+Sale 5.000 08/05/24 11/26/24 24.08 24.70 -0.62
+SAMPLE TREE INC, SMPL, 256746108
+Sale 1.000 09/13/24 11/26/24 68.83 69.82 -0.99
+Sale 3.000 06/12/24 11/26/24 72.39 92.85 -20.46
+Sale 0.854 08/05/24 11/26/24 20.60 16.91 3.69
+Subtotals 161.82 179.58
+TOTALS
+185.90 204.28 0.00 0.00
+FORM 1099-B*
+Long-term transactions for which basis is reported to the IRS -- report on Form 8949 with Box D checked and/or Schedule D, Part II
+1a Description of property, Stock or Other Symbol, CUSIP
+WIDGETSOFT CORP, WDGT, 00724F101
+Sale 0.217 03/17/21 11/26/24 113.54 97.46 16.08
+Sale 0.033 12/16/21 11/26/24 17.27 19.02 -1.75
+Sale 0.500 03/18/21 11/26/24 40.00 47.04 7.04 W 0.00
+Subtotals 170.81 163.52
+MATTERPORT INC COM CL A *EXCHANGED FOR ., 577096100
+Merger 1.000 12/03/21 02/28/25 2.75 2.75(f) 0.00
+Subtotals 2.75 2.75
+TOTALS
+170.81 163.52 0.00 0.00
+2024 TAX REPORTING STATEMENT
+Details of 1099-DIV Transactions
+Total Ordinary Dividends and Distributions Detail
+Description, Symbol, CUSIP
+WIDGETSOFT CORP, WDGT, 00724F101
+03/17/24 0.30 0.30
+06/16/24 0.32 0.32
+09/15/24 0.32 0.32
+12/15/24 0.63 0.63
+Subtotals 1.57 1.57
+SAMPLE TREE INC, SMPL, 256746108
+02/13/24 0.38
+05/15/24 0.26
+Subtotals 0.64
