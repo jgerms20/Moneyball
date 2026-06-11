@@ -9,38 +9,26 @@ export async function addDesignation(formData: FormData): Promise<void> {
   const symbol = String(formData.get("symbol") ?? "")
     .trim()
     .toUpperCase();
-  const bucket = String(formData.get("bucket") ?? "belief").trim() as
-    | "belief"
-    | "quality"
-    | "meme"
-    | "watch";
+  const bucketRaw = String(formData.get("bucket") ?? "belief").trim();
+  const bucket =
+    (["belief", "quality", "meme", "watch"] as const).find((b) => b === bucketRaw) ?? "belief";
   const note = String(formData.get("note") ?? "").trim() || null;
 
   if (!symbol) return;
 
   const db = getDb();
-  // upsert: if symbol exists update bucket+note, else insert
-  const existing = db
-    .select()
-    .from(designations)
-    .where(eq(designations.symbol, symbol))
-    .get();
-
-  if (existing) {
-    db.update(designations)
-      .set({ bucket, note: note ?? undefined })
-      .where(eq(designations.symbol, symbol))
-      .run();
-  } else {
-    db.insert(designations)
-      .values({
-        symbol,
-        bucket,
-        note: note ?? undefined,
-        createdAt: new Date().toISOString(),
-      })
-      .run();
-  }
+  db.insert(designations)
+    .values({
+      symbol,
+      bucket,
+      note: note ?? undefined,
+      createdAt: new Date().toISOString(),
+    })
+    .onConflictDoUpdate({
+      target: designations.symbol,
+      set: { bucket, note },
+    })
+    .run();
 
   revalidatePath("/walls");
 }

@@ -8,7 +8,8 @@ export async function addAnnotation(formData: FormData): Promise<void> {
   const date = String(formData.get("date") ?? "").trim();
   const label = String(formData.get("label") ?? "").trim();
   const body = String(formData.get("body") ?? "").trim() || null;
-  const kind = String(formData.get("kind") ?? "life").trim() as "life" | "market" | "account";
+  const kindRaw = String(formData.get("kind") ?? "life").trim();
+  const kind = (["life", "market", "account"] as const).find((k) => k === kindRaw) ?? "life";
 
   if (!date || !label) return;
 

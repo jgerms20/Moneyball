@@ -27,7 +27,8 @@ npm run seed:demo                      # synthetic data -> data/demo.db
 TRADER_MIRROR_DB=data/demo.db npm run dev
 ```
 
-With real exports:
+With real exports — either drop files onto the **Data** page in the running
+app, or import from the CLI:
 
 ```bash
 npm run import -- data/imports/History_for_Account_*.csv data/imports/*1099*.pdf
